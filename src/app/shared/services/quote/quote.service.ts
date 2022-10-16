@@ -1,10 +1,10 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { DataContext } from './models/Currency';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { DataContext } from "../../models/Currency";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class QuoteService {
   constructor(private http: HttpClient) {}

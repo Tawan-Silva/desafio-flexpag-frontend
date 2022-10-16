@@ -1,27 +1,27 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource, MatTable } from '@angular/material/table';
-import * as moment from 'moment';
-import { ToastrService } from 'ngx-toastr';
-import { Currency } from 'src/app/shared/services/quote/models/Currency';
-import { typeCoins } from 'src/app/shared/services/quote/models/TypeCoins';
-import { QuoteService } from 'src/app/shared/services/quote/quote.service';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatSort } from "@angular/material/sort";
+import { MatTableDataSource, MatTable } from "@angular/material/table";
+import * as moment from "moment";
+import { ToastrService } from "ngx-toastr";
+import { Currency } from "src/app/shared/models/Currency";
+import { typeCoins } from "src/app/shared/models/TypeCoins";
+import { QuoteService } from "src/app/shared/services/quote/quote.service";
 
 @Component({
-  selector: 'app-queote-list',
-  templateUrl: './queote-list.component.html',
-  styleUrls: ['./queote-list.component.scss']
+  selector: "app-queote-list",
+  templateUrl: "./queote-list.component.html",
+  styleUrls: ["./queote-list.component.scss"],
 })
 export class QueoteListComponent implements OnInit {
-  public displayedColumns: string[] = ['purchase', 'sale', 'date'];
+  public displayedColumns: string[] = ["purchase", "sale", "date"];
   public disabled: boolean = false;
-  public selected: string = '';
+  public selected: string = "";
   public typeCoins = typeCoins;
-  public currentType: string = '';
-  public startDate: string = '';
-  public finalDate: string = '';
-  public matButtonToggleGroup: string = '';
+  public currentType: string = "";
+  public startDate: string = "";
+  public finalDate: string = "";
+  public matButtonToggleGroup: string = "";
   public allCurrency: Currency[] = [];
   public dataSource = new MatTableDataSource<Currency>(this.allCurrency);
   public clickedRows = new Set<Currency>(this.allCurrency);
@@ -62,8 +62,8 @@ export class QueoteListComponent implements OnInit {
   }
 
   public onSubmit(currencyType: string, startDate: any, finalDate: any) {
-    startDate = moment(startDate).format('MM-DD-yyyy');
-    finalDate = moment(finalDate).format('MM-DD-yyyy');
+    startDate = moment(startDate).format("MM-DD-yyyy");
+    finalDate = moment(finalDate).format("MM-DD-yyyy");
 
     if (!this.validateForm(currencyType, startDate, finalDate)) return;
 
@@ -71,17 +71,17 @@ export class QueoteListComponent implements OnInit {
   }
 
   private validateForm(currencyType: string, startDate: any, finalDate: any) {
-    if (currencyType == '' || startDate == '' || finalDate == '') {
-      this.toastr.error('Todos os campos são obrigários.', 'Campos nulos!', {
+    if (currencyType == "" || startDate == "" || finalDate == "") {
+      this.toastr.error("Todos os campos são obrigários.", "Campos nulos!", {
         progressBar: true,
-        progressAnimation: 'decreasing',
+        progressAnimation: "decreasing",
         closeButton: true,
       });
       return false;
-    } else if (startDate == 'Invalid date' || finalDate == 'Invalid date') {
-      this.toastr.error('Todos os campos são obrigários.', 'Campos nulos!', {
+    } else if (startDate == "Invalid date" || finalDate == "Invalid date") {
+      this.toastr.error("Todos os campos são obrigários.", "Campos nulos!", {
         progressBar: true,
-        progressAnimation: 'decreasing',
+        progressAnimation: "decreasing",
         closeButton: true,
       });
       return false;
@@ -89,11 +89,11 @@ export class QueoteListComponent implements OnInit {
 
     if (startDate > finalDate) {
       this.toastr.error(
-        'A data inicial não pode ser maior que a data final.',
-        'Intervalo de datas inválido!',
+        "A data inicial não pode ser maior que a data final.",
+        "Intervalo de datas inválido!",
         {
           progressBar: true,
-          progressAnimation: 'decreasing',
+          progressAnimation: "decreasing",
           closeButton: true,
         }
       );
