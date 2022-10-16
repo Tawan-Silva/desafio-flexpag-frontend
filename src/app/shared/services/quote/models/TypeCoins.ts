@@ -1,0 +1,18 @@
+export const typeCoins = [
+  {
+    "ID": 'AUD',
+    "TEXT": 'Dólar australiano',
+  },
+  {
+    "ID": 'CAD',
+    "TEXT": 'Dólar canadense',
+  },
+  {
+    "ID": 'EUR',
+    "TEXT": 'Euro',
+  },
+  {
+    "ID": 'USD',
+    "TEXT": 'Dólar dos Estados Unidos',
+  }
+];
