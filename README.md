@@ -30,6 +30,6 @@ ser preenchidos obrigatoriamente.
 1. Clone ou baixe o repositório.
 2. Com o terminal na pasta do projeto, execute o comando `npm install`.
 3. Ainda na pasta do projeto, execute o comando `ng serve`.
-4. Abrir o navegador e acessar a porta `http://localhost:4200/`.
+4. Abrir o navegador e acessar a url `http://localhost:4200/`.
 
 > Flexpag Desafio Frontend 🏅
